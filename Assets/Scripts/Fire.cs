@@ -20,7 +20,7 @@ public class Fire : MonoBehaviour
     {
         if (other.CompareTag("Ground"))
         {
-            Destroy(gameObject, 2f);
+            Destroy(gameObject);
         }
     }
 }

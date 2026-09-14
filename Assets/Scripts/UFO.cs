@@ -34,7 +34,7 @@ public class UFO : MonoBehaviour
                 Instantiate(fire, transform.position, Quaternion.identity);
                 nextFire = Time.time + 2f;
                 }
-            fly = 3f;
+            fly = 10f;
         }
 
         Vector3 movement = new Vector3(move_x * move_speed, fly, move_z * move_speed);

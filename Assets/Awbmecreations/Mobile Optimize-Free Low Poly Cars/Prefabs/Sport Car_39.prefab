@@ -133,6 +133,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CubeMovement
   speed: 3
   detectionDistance: 3
+  leftDX: 4
+  leftDZ: 3
+  rightDX: 6.33
+  rightDZ: 5.33
+  turnDuration: 4
 --- !u!54 &9071284948656609019
 Rigidbody:
   m_ObjectHideFlags: 0

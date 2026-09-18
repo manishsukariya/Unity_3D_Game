@@ -17,24 +17,25 @@ public class UFO : MonoBehaviour
     {
         float move_x = 0f;
         float move_z = 0;
-        float fly = 0f;
+        float fly = transform.position.y > 5f ? -5f : 0f;
 
         if(Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
-            move_x = 1f;
-        if(Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
             move_x = -1f;
+        if(Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
+            move_x = 1f;
         if(Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed)
-            move_z = -1f;
-        if(Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed)
             move_z = 1f;
+        if(Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed)
+            move_z = -1f;
 
         if(Keyboard.current.spaceKey.isPressed)
         {
             if(Time.time >= nextFire){
-                Instantiate(fire, transform.position, Quaternion.identity);
+                Vector3 firePosition = transform.position - transform.forward * 2f;
+                Instantiate(fire, firePosition, Quaternion.identity);
                 nextFire = Time.time + 2f;
                 }
-            fly = 10f;
+            fly = 20f;
         }
 
         Vector3 movement = new Vector3(move_x * move_speed, fly, move_z * move_speed);

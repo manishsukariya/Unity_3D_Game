@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using UnityEngine;
 
 public class Fire : MonoBehaviour
@@ -6,7 +7,7 @@ public class Fire : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Destroy(gameObject, 5f);
+        
     }
 
     // Update is called once per frame
@@ -22,5 +23,16 @@ public class Fire : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Car"))
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
+
+        Destroy(gameObject);
     }
 }
